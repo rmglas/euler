@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+from timing import time_function
+
 def multiples_loop():
     '''Sum of multiples of 3 and 5 below 1000
 
@@ -34,5 +36,8 @@ def multiples_analytical():
     return int(sum_multiples_3 + sum_multiples_5 - sum_duplicates)
 
 if __name__ == '__main__':
-    print(multiples_loop())
-    print(multiples_analytical())
+    print('Problem 1: sum of multiples of 3 and 5 below 1000')
+    result, time = time_function(multiples_loop)
+    print ('loop method:      ', result, '[{:10f} seconds]'.format(time))
+    result, time = time_function(multiples_analytical)
+    print ('analytical method:', result, '[{:10f} seconds]'.format(time))
